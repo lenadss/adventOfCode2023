@@ -1,14 +1,5 @@
-import { promises as fsPromises } from 'fs';
-
-async function asyncReadFile(filename) {
-  try {
-    const contents = await fsPromises.readFile(filename, 'utf-8');
-    const arr = contents.split(/\r?\n/);
-    return arr;
-  } catch (err) {
-    console.log(err);
-  }
-}
+import fs from 'fs';
+const input = fs.readFileSync('./assets/input.txt', 'utf-8').split(/\r?\n/);
 
 const RED_CUBES = 12;
 const GREEN_CUBES = 13;
@@ -17,8 +8,6 @@ const BLUE_CUBES = 14;
 const findRed = /([\d.]+) *red/g;
 const findGreen = /([\d.]+) *green/g;
 const findBlue = /([\d.]+) *blue/g;
-
-let input = await asyncReadFile('./assets/input.txt');
 
 let gamesIdSum = 0;
 input.forEach((str) => {

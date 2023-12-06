@@ -1,12 +1,12 @@
 import fs from 'fs';
-const data = fs.readFileSync('./assets/input.txt', 'utf-8').split(/\r?\n/);
+const input = fs.readFileSync('./assets/input.txt', 'utf-8').split(/\r?\n/);
 
-let time = data[0]
+let time = input[0]
   .split(':')[1]
   .split(' ')
   .filter((v) => v)
   .map((e) => Number(e));
-let distance = data[1]
+let distance = input[1]
   .split(':')[1]
   .split(' ')
   .filter((v) => v)
@@ -17,8 +17,8 @@ for (let i = 0; i < time.length; i++) {
   races.push({ time: time[i], maxDistance: distance[i] });
 }
 
-console.log('races');
-console.log(races);
+//console.log('races');
+//console.log(races);
 
 let multiply = 1;
 
@@ -33,7 +33,7 @@ for (const race of races) {
       waysToWin++;
     }
   }
-  console.log('waysToWin = ' + waysToWin);
+  //console.log('waysToWin = ' + waysToWin);
 
   multiply = multiply * waysToWin;
 }

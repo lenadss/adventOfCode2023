@@ -1,11 +1,11 @@
 import fs from 'fs';
-const data = fs.readFileSync('./assets/input.txt', 'utf-8').split(/\r?\n/);
+const input = fs.readFileSync('./assets/input.txt', 'utf-8').split(/\r?\n/);
 
-let time = Number(data[0].split(':')[1].replace(/[^0-9]/g, ''));
-let maxDistance = Number(data[1].split(':')[1].replace(/[^0-9]/g, ''));
+let time = Number(input[0].split(':')[1].replace(/[^0-9]/g, ''));
+let maxDistance = Number(input[1].split(':')[1].replace(/[^0-9]/g, ''));
 
-console.log('time = ' + time);
-console.log('maxDistance = ' + maxDistance);
+//console.log('time = ' + time);
+//console.log('maxDistance = ' + maxDistance);
 
 let waysToWin = 0;
 

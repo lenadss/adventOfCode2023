@@ -1,20 +1,10 @@
-import { promises as fsPromises } from 'fs';
-
-async function asyncReadFile(filename) {
-  try {
-    const contents = await fsPromises.readFile(filename, 'utf-8');
-    const arr = contents.split(/\r?\n/);
-    return arr;
-  } catch (err) {
-    console.log(err);
-  }
-}
+import fs from 'fs';
+const input = fs.readFileSync('./assets/input.txt', 'utf-8').split(/\r?\n/);
 
 function isNumeric(value) {
   return /\d/.test(value);
 }
 
-let input = await asyncReadFile('./assets/input.txt');
 let gears = {};
 
 for (let row = 0; row < input.length; row++) {
@@ -76,7 +66,7 @@ for (let row = 0; row < input.length; row++) {
     }
   }
 }
-console.log(gears);
+//console.log(gears);
 
 let sum = 0;
 

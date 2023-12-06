@@ -1,16 +1,5 @@
-import { promises as fsPromises } from 'fs';
-
-async function asyncReadFile(filename) {
-  try {
-    const contents = await fsPromises.readFile(filename, 'utf-8');
-    const arr = contents.split(/\r?\n/);
-    return arr;
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-let input = await asyncReadFile('./assets/input.txt');
+import fs from 'fs';
+const input = fs.readFileSync('./assets/input.txt', 'utf-8').split(/\r?\n/);
 
 let gameSum = 0;
 
