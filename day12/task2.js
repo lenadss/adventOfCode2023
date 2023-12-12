@@ -9,13 +9,13 @@ let records = input.map((row) => {
   };
 });
 
-////console.log('records');
+//console.log('records');
 //console.log(records);
-let cache = {};
+let cache = new Map();
 
 const count = (conditions, groups) => {
-  const key = conditions + groups.toString();
-  if (cache[key]) return cache[key];
+  const key = [conditions, groups.toString()].join('');
+  if (cache.has(key)) return cache.get(key);
 
   if (conditions === '') {
     return groups.length === 0 ? 1 : 0;
@@ -40,7 +40,8 @@ const count = (conditions, groups) => {
       result += count(conditions.slice(groups[0] + 1), groups.slice(1));
     }
   }
-  cache[key] = result;
+
+  cache.set(key, result);
   return result;
 };
 
